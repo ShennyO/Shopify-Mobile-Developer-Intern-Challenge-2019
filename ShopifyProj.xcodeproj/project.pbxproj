@@ -14,6 +14,7 @@
 		C33A3E7D22453B4900ECC0C4 /* ShopifyProjTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E7C22453B4900ECC0C4 /* ShopifyProjTests.swift */; };
 		C33A3E8822453B4900ECC0C4 /* ShopifyProjUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E8722453B4900ECC0C4 /* ShopifyProjUITests.swift */; };
 		C33A3E96224564A900ECC0C4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E95224564A900ECC0C4 /* Networking.swift */; };
+		C33A3E982245845200ECC0C4 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E972245845200ECC0C4 /* Collection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C33A3E8722453B4900ECC0C4 /* ShopifyProjUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopifyProjUITests.swift; sourceTree = "<group>"; };
 		C33A3E8922453B4900ECC0C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C33A3E95224564A900ECC0C4 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		C33A3E972245845200ECC0C4 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				C33A3E6722453B4400ECC0C4 /* AppDelegate.swift */,
 				C33A3E6922453B4400ECC0C4 /* ViewController.swift */,
 				C33A3E95224564A900ECC0C4 /* Networking.swift */,
+				C33A3E972245845200ECC0C4 /* Collection.swift */,
 				C33A3E6E22453B4800ECC0C4 /* Assets.xcassets */,
 				C33A3E7022453B4800ECC0C4 /* LaunchScreen.storyboard */,
 				C33A3E7322453B4800ECC0C4 /* Info.plist */,
@@ -258,6 +261,7 @@
 				C33A3E96224564A900ECC0C4 /* Networking.swift in Sources */,
 				C33A3E6A22453B4400ECC0C4 /* ViewController.swift in Sources */,
 				C33A3E6822453B4400ECC0C4 /* AppDelegate.swift in Sources */,
+				C33A3E982245845200ECC0C4 /* Collection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
