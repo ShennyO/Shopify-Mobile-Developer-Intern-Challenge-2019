@@ -8,15 +8,46 @@
 
 import Foundation
 
+
+enum Route {
+    
+    case collections
+    case products(id: String)
+    
+    func url() -> String {
+        switch self {
+        case .collections:
+            return "https://shopicruit.myshopify.com/admin/custom_collections.json"
+        
+        case .products:
+            return "https://shopicruit.myshopify.com/admin/products.json"
+        }
+    }
+    
+    func parameters() -> [String: String] {
+        switch self {
+            case .collections:
+                return ["access_token": "c32313df0d0ef512ca64d5b336a0d7c6"]
+            case let .products(id):
+                return ["access_token": "c32313df0d0ef512ca64d5b336a0d7c6",
+                        "ids": id
+            ]
+            
+        }
+    }
+}
+
 class Network {
     
     static let instance = Network()
-    let urlPath = "https://shopicruit.myshopify.com/admin/custom_collections.json"
     let session = URLSession.shared
     
-    func fetch(params: [String: String], completion: @escaping (Data, HTTPURLResponse) -> Void) {
-        let pathURL = URL(string: urlPath)
-        let fullURL = pathURL?.appendingQueryParameters(params)
+    
+    func fetch(route: Route, completion: @escaping (Data, HTTPURLResponse) -> Void) {
+        
+        let urlString = route.url()
+        let url = URL(string: urlString)
+        let fullURL = url?.appendingQueryParameters(route.parameters())
         let request = URLRequest(url: fullURL!)
         
         session.dataTask(with: request) { (data, resp, err) in
@@ -24,8 +55,9 @@ class Network {
             if let data = data, let resp = resp {
                 completion(data,resp as! HTTPURLResponse)
             }
-            
-            }.resume()
+        
+        }.resume()
+        
         
     }
     

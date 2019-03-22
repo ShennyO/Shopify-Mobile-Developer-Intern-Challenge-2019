@@ -47,3 +47,7 @@ extension Collection: Decodable {
     }
     
 }
+
+struct collectionList: Decodable {
+    let custom_collections: [Collection]
+}
