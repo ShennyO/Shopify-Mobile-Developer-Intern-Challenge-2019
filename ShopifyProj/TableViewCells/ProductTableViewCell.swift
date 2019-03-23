@@ -10,15 +10,105 @@ import UIKit
 
 class ProductTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    //MARK: VARIABLES
+    var product: Product! {
+        didSet {
+            setUp()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    //MARK:OUTLETS
+    var containerView: UIView = {
+        let containerView = UIView()
+        containerView.backgroundColor = UIColor.white
+        containerView.layer.cornerRadius = 15
+        containerView.layer.borderWidth = 5
+        containerView.layer.borderColor = UIColor.white.cgColor
+        return containerView
+    }()
+    
+    var titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 24)
+        label.textColor = #colorLiteral(red: 0.09240043908, green: 0.0924237594, blue: 0.09239736944, alpha: 1)
+        return label
+    }()
+    
+    var vendorLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        label.textColor = #colorLiteral(red: 0.09240043908, green: 0.0924237594, blue: 0.09239736944, alpha: 1)
+        return label
+    }()
+    
+    var inventoryLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 18)
+        label.textColor = #colorLiteral(red: 0.09240043908, green: 0.0924237594, blue: 0.09239736944, alpha: 1)
+        return label
+    }()
+    
+    var productImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 15
+        return imageView
+    }()
+    
+    //MARK: FUNCTIONS
+    private func addViews() {
+        self.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(vendorLabel)
+        containerView.addSubview(inventoryLabel)
+        containerView.addSubview(productImageView)
     }
+    
+    private func setConstraints() {
+        containerView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(10)
+            make.bottom.equalToSuperview().offset(-10)
+            make.right.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(10)
+            
+        }
+        
+        productImageView.snp.makeConstraints { (make) in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().offset(15)
+            make.height.equalTo(150)
+            make.width.equalTo(150)
+        }
+        
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(productImageView.snp.top).offset(5)
+            make.left.equalTo(productImageView.snp.right).offset(15)
+        }
+        
+        vendorLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.left.equalTo(productImageView.snp.right).offset(15)
+        }
+        
+        inventoryLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(vendorLabel.snp.bottom).offset(15)
+            make.left.equalTo(productImageView.snp.right).offset(15)
+        }
+        
+    }
+    
+    private func setUp() {
+        addViews()
+        setConstraints()
+        
+        let productURL = URL(string: (self.product?.imageURL)!)
+        productImageView.kf.setImage(with: productURL)
+        
+        titleLabel.text = product?.title
+        vendorLabel.text = product?.vendor
+        inventoryLabel.text = String(describing: product?.totalInv)
+    }
+    
+    
 
 }
