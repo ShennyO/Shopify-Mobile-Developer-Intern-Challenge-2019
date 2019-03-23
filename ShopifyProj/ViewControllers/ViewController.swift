@@ -13,15 +13,17 @@ class ViewController: UIViewController {
 
     //MARK: VARIABLES
     var collections: [Collection] = []
-    var collectionToPass: Collection?
+    var collectionToPass: Collection!
+   
     
     //MARK: OUTLETS
     var collectionTableView = UITableView()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.white
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+        self.setUpNavBar()
         self.getCollections() {
             DispatchQueue.main.async {
                 self.setUpTableView()
@@ -31,7 +33,18 @@ class ViewController: UIViewController {
         
     }
     
+   
+}
+
+extension ViewController {
+    
     //MARK: FUNCTIONS
+    
+    private func setUpNavBar() {
+        self.title = "Collections"
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     private func setUpTableView() {
         self.collectionTableView.separatorStyle = .none
         self.collectionTableView.delegate = self
@@ -48,9 +61,7 @@ class ViewController: UIViewController {
         
     }
     
-}
-
-extension ViewController {
+    
     private func getCollections(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.collections) { (data, response) in
             let jsonCollections = try? JSONDecoder().decode(collectionList.self, from: data)
@@ -58,6 +69,12 @@ extension ViewController {
             self.collections = collections
             completion()
         }
+    }
+    
+    private func toNext() {
+        let nextVC = ProductsViewController()
+        nextVC.collection = self.collectionToPass
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
@@ -71,6 +88,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell") as! CollectionTableViewCell
         cell.collection = self.collections[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -80,7 +98,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         collectionToPass = self.collections[indexPath.row]
-        self.performSegue(withIdentifier: "toProducts", sender: self)
+        toNext()
     }
     
     

@@ -12,6 +12,7 @@ import Foundation
 enum Route {
     
     case collections
+    case collects(id: String)
     case products(id: String)
     
     func url() -> String {
@@ -19,15 +20,26 @@ enum Route {
         case .collections:
             return "https://shopicruit.myshopify.com/admin/custom_collections.json"
         
+        case .collects:
+            return "https://shopicruit.myshopify.com/admin/collects.json"
+            
         case .products:
             return "https://shopicruit.myshopify.com/admin/products.json"
         }
+        
+        
+        
     }
     
     func parameters() -> [String: String] {
         switch self {
             case .collections:
                 return ["access_token": "c32313df0d0ef512ca64d5b336a0d7c6"]
+            
+            case let .collects(id):
+                return ["access_token": "c32313df0d0ef512ca64d5b336a0d7c6",
+                        "collection_id": id
+            ]
             case let .products(id):
                 return ["access_token": "c32313df0d0ef512ca64d5b336a0d7c6",
                         "ids": id
@@ -48,6 +60,7 @@ class Network {
         let urlString = route.url()
         let url = URL(string: urlString)
         let fullURL = url?.appendingQueryParameters(route.parameters())
+        print(fullURL!)
         let request = URLRequest(url: fullURL!)
         
         session.dataTask(with: request) { (data, resp, err) in

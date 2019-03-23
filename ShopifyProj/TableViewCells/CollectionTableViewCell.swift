@@ -15,12 +15,7 @@ class CollectionTableViewCell: UITableViewCell {
     //MARK: VARIABLES
     var collection: Collection? {
         didSet {
-            titleLabel.text = self.collection?.title
-            let collectionImageURL = URL(string: (collection?.imageURL)!)
-            collectionImageView.kf.setImage(with: collectionImageURL)
-            addViews()
-            setConstraints()
-            self.backgroundColor = #colorLiteral(red: 0.9402160048, green: 0.9403734803, blue: 0.9401952624, alpha: 1)
+            setUp()
         }
     }
     
@@ -49,10 +44,6 @@ class CollectionTableViewCell: UITableViewCell {
     }()
     
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -61,6 +52,15 @@ class CollectionTableViewCell: UITableViewCell {
     }
     
     //MARK: FUNCTIONS
+    private func setUp() {
+        addViews()
+        setConstraints()
+        titleLabel.text = self.collection?.title
+        let collectionImageURL = URL(string: (collection?.imageURL)!)
+        collectionImageView.kf.setImage(with: collectionImageURL)
+        self.backgroundColor = #colorLiteral(red: 0.9402160048, green: 0.9403734803, blue: 0.9401952624, alpha: 1)
+    }
+    
     private func addViews(){
         self.addSubview(containerView)
         self.containerView.addSubview(titleLabel)

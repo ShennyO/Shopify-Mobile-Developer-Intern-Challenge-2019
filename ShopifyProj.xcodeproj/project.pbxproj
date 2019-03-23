@@ -19,6 +19,9 @@
 		C33A3E982245845200ECC0C4 /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E972245845200ECC0C4 /* Collection.swift */; };
 		C33A3E9A2245AFF900ECC0C4 /* CollectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33A3E992245AFF900ECC0C4 /* CollectionTableViewCell.swift */; };
 		C37519CC2245E3E000FF0E22 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37519CB2245E3E000FF0E22 /* ProductTableViewCell.swift */; };
+		C37519CE2245E46500FF0E22 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37519CD2245E46500FF0E22 /* ProductsViewController.swift */; };
+		C37519D12245F21600FF0E22 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37519D02245F21600FF0E22 /* Product.swift */; };
+		C37519D32246DCA400FF0E22 /* Collect.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37519D22246DCA400FF0E22 /* Collect.swift */; };
 		DB686D4DC1C45D96BE06D9B2 /* Pods_ShopifyProjTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2623798A1C3DC46586CD9F10 /* Pods_ShopifyProjTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +66,9 @@
 		C33A3E972245845200ECC0C4 /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
 		C33A3E992245AFF900ECC0C4 /* CollectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewCell.swift; sourceTree = "<group>"; };
 		C37519CB2245E3E000FF0E22 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		C37519CD2245E46500FF0E22 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
+		C37519D02245F21600FF0E22 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		C37519D22246DCA400FF0E22 /* Collect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collect.swift; sourceTree = "<group>"; };
 		DEA5D1AFA7C621A4C987CB51 /* Pods_ShopifyProj.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShopifyProj.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F604050EB9F8F69A25A80FD1 /* Pods-ShopifyProjUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopifyProjUITests.release.xcconfig"; path = "Target Support Files/Pods-ShopifyProjUITests/Pods-ShopifyProjUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C33A3E6722453B4400ECC0C4 /* AppDelegate.swift */,
-				C33A3E6922453B4400ECC0C4 /* ViewController.swift */,
+				C37519CF2245E47600FF0E22 /* ViewControllers */,
 				C37519CA2245C61100FF0E22 /* Helpers */,
 				C37519C92245C5E500FF0E22 /* Models */,
 				C37519C82245C5BA00FF0E22 /* TableViewCells */,
@@ -186,6 +192,8 @@
 			isa = PBXGroup;
 			children = (
 				C33A3E972245845200ECC0C4 /* Collection.swift */,
+				C37519D22246DCA400FF0E22 /* Collect.swift */,
+				C37519D02245F21600FF0E22 /* Product.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -196,6 +204,15 @@
 				C33A3E95224564A900ECC0C4 /* Networking.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C37519CF2245E47600FF0E22 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C33A3E6922453B4400ECC0C4 /* ViewController.swift */,
+				C37519CD2245E46500FF0E22 /* ProductsViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -426,7 +443,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C33A3E9A2245AFF900ECC0C4 /* CollectionTableViewCell.swift in Sources */,
+				C37519D12245F21600FF0E22 /* Product.swift in Sources */,
 				C33A3E96224564A900ECC0C4 /* Networking.swift in Sources */,
+				C37519CE2245E46500FF0E22 /* ProductsViewController.swift in Sources */,
+				C37519D32246DCA400FF0E22 /* Collect.swift in Sources */,
 				C33A3E6A22453B4400ECC0C4 /* ViewController.swift in Sources */,
 				C33A3E6822453B4400ECC0C4 /* AppDelegate.swift in Sources */,
 				C33A3E982245845200ECC0C4 /* Collection.swift in Sources */,
