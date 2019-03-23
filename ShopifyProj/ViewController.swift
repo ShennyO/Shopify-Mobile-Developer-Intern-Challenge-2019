@@ -10,14 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    
+    //MARK: VARIABLES
     var collections: [Collection] = []
+    
+    //MARK: OUTLETS
+    var collectionTableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.getCollections()
         
+    }
+    
+    //MARK: FUNCTIONS
+    private func setUpTableView() {
+        self.collectionTableView.delegate = self
+        self.collectionTableView.dataSource = self
+        self.collectionTableView.register(CollectionTableViewCell.self, forCellReuseIdentifier: "CollectionCell")
+        self.view.addSubview(collectionTableView)
     }
     
 }
@@ -31,5 +42,20 @@ extension ViewController {
             
         }
     }
+}
+
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return collections.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CollectionCell") as! CollectionTableViewCell
+        return cell
+    }
+    
+    
 }
 
