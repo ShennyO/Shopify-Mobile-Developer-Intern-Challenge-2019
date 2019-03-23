@@ -1,0 +1,6 @@
+framework module Pods_ShopifyProjUITests {
+  umbrella header "Pods-ShopifyProjUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
