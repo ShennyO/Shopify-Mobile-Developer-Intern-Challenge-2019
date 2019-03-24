@@ -4,7 +4,7 @@ This project is built for Shopify's summer/winter mobile developer internship po
 
 ## Screenshots
 
-<img src="Collections.png" width ="350" height="700"> <img src="Products.png" width ="350" height="700">
+<img src="Collections.png" width ="380" height="700"> <img src="Products.png" width ="380" height="700">
 
 
 ## Getting Started
@@ -42,6 +42,10 @@ pod install
 * SnapKit - A Swift Autolayout DSL for iOS & OS X <http://snapkit.io>
 * Kingfisher - A lightweight, pure-Swift library for downloading and caching images from the web <https://github.com/onevcat/Kingfisher>
 
+
+## Author
+
+* Sunny Ouyang
 
 
 
