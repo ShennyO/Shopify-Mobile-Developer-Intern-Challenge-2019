@@ -31,6 +31,12 @@ pod install
     * vendor
     
 
+## Pods and API
+
+* Shopify REST API 
+* SnapKit - A Swift Autolayout DSL for iOS & OS X <http://snapkit.io>
+* Kingfisher - A lightweight, pure-Swift library for downloading and caching images from the web <https://github.com/onevcat/Kingfisher>
+
 
 
 
