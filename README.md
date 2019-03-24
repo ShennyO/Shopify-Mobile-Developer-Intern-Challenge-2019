@@ -4,8 +4,7 @@ This project is built for Shopify's summer/winter mobile developer internship po
 
 ## Screenshots
 
-<img src="Collections.png" width ="350" height="700">
-<img src="Products.png" width ="350" height="700">
+<img src="Collections.png" width ="350" height="700"> <img src="Products.png" width ="350" height="700">
 
 
 ## Getting Started
