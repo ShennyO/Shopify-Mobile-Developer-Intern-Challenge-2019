@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        let initialVewController = ViewController()
+        let initialVewController = CollectionsViewController()
         let navigationController = UINavigationController(rootViewController: initialVewController)
         window!.rootViewController = navigationController
         window!.makeKeyAndVisible()
