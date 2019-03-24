@@ -21,6 +21,7 @@ class ProductsViewController: UIViewController {
     var productsTableView = UITableView()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
@@ -28,6 +29,7 @@ class ProductsViewController: UIViewController {
             self.getProducts(productId: id, completion: {
                 DispatchQueue.main.async {
                     self.setUpProductsTableView()
+                    self.setUpTableHeaderView()
                 }
                 
             })
@@ -40,6 +42,74 @@ class ProductsViewController: UIViewController {
 extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: TABLEVIEW SETUP
+    
+    private func setUpTableHeaderView() {
+        
+        let headerFrame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 200)
+        let headerView = UIView(frame: headerFrame)
+        
+        //MARK: HEADERVIEW OUTLETS
+        
+        let collectionTitleLabel: UILabel = {
+            let label = UILabel()
+            label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 30)
+            label.numberOfLines = 0
+            label.textColor = #colorLiteral(red: 0.09240043908, green: 0.0924237594, blue: 0.09239736944, alpha: 1)
+            return label
+        }()
+        
+        let collectionBodyLabel: UILabel = {
+            let label = UILabel()
+            label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 15)
+            label.numberOfLines = 0
+            label.textColor = #colorLiteral(red: 0.09240043908, green: 0.0924237594, blue: 0.09239736944, alpha: 1)
+            label.textAlignment = .center
+            return label
+        }()
+        
+        let collectionImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            imageView.clipsToBounds = true
+            imageView.layer.cornerRadius = 40
+            return imageView
+        }()
+        
+        
+        headerView.addSubview(collectionTitleLabel)
+        headerView.addSubview(collectionBodyLabel)
+        headerView.addSubview(collectionImageView)
+     
+        
+        collectionTitleLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(15)
+            make.centerX.equalToSuperview()
+        }
+        
+        collectionBodyLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(collectionTitleLabel.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+        }
+        
+        collectionImageView.snp.makeConstraints { (make) in
+            make.top.equalTo(collectionBodyLabel.snp.bottom).offset(10)
+            make.centerX.equalToSuperview()
+            make.height.equalTo(80)
+            make.width.equalTo(80)
+        }
+        
+        
+        
+        headerView.backgroundColor = #colorLiteral(red: 0.9411764706, green: 0.9411764706, blue: 0.9411764706, alpha: 1)
+        collectionTitleLabel.text = self.collection.title
+        collectionBodyLabel.text = self.collection.body
+        let collectionImageURL = URL(string: self.collection.imageURL)
+        collectionImageView.kf.setImage(with: collectionImageURL)
+        self.productsTableView.tableHeaderView = headerView
+        
+    }
     
     
     private func setUpProductsTableView() {
@@ -59,7 +129,7 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return 150
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

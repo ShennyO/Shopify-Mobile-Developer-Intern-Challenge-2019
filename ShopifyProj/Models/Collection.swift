@@ -13,11 +13,13 @@ struct Collection {
     let collectionID: Int
     let title: String
     let imageURL: String
+    let body: String
     
-    init(collectionID: Int, title: String, imageURL: String) {
+    init(collectionID: Int, title: String, imageURL: String, body: String) {
         self.collectionID = collectionID
         self.title = title
         self.imageURL = imageURL
+        self.body = body
     }
     
 }
@@ -28,6 +30,7 @@ extension Collection: Decodable {
         case id
         case title
         case image
+        case body_html
         
     }
     
@@ -41,8 +44,9 @@ extension Collection: Decodable {
         let title = try topContainer.decodeIfPresent(String.self, forKey: .title)
         let id = try topContainer.decodeIfPresent(Int.self, forKey: .id)
         let imageURL = try imageContainer.decodeIfPresent(String.self, forKey: .src)
+        let body = try topContainer.decodeIfPresent(String.self, forKey: .body_html)
         
-        self.init(collectionID: id!, title: title!, imageURL: imageURL!)
+        self.init(collectionID: id!, title: title!, imageURL: imageURL!, body: body!)
         
     }
     
