@@ -53,9 +53,7 @@ extension CollectionsViewController {
     
     private func setUpCollectionView() {
         
-//        flowLayout.minimumLineSpacing = 50
-        
-//        flowLayout.minimumInteritemSpacing = -70
+
         let collectionViewFrame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: self.view.bounds.height)
         collectionsCollectionView = UICollectionView(frame: collectionViewFrame, collectionViewLayout: flowLayout)
         collectionsCollectionView.contentInset = UIEdgeInsets(top: 15, left: 10, bottom: 0, right: 10)
