@@ -133,6 +133,7 @@ extension ProductsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell") as! ProductTableViewCell
+        cell.selectionStyle = .none
         cell.product = self.products[indexPath.row]
         return cell
     }
