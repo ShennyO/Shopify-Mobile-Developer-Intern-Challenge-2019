@@ -4,7 +4,8 @@ This project is built for Shopify's summer/winter mobile developer internship po
 
 ## Screenshots
 
-![alt text](https://imgur.com/x0qmqxS) 
+![alt text](Collections.png) ![alt text](Products.png)
+
 
 ## Getting Started
 
