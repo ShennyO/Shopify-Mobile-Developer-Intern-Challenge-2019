@@ -1,23 +1,23 @@
 //
-//  CollectionTableViewCell.swift
+//  CollectionCollectionViewCell.swift
 //  ShopifyProj
 //
-//  Created by Sunny Ouyang on 3/22/19.
+//  Created by Sunny Ouyang on 3/24/19.
 //  Copyright © 2019 Sunny Ouyang. All rights reserved.
 //
 
 import UIKit
-import SnapKit
-import Kingfisher
 
-class CollectionTableViewCell: UITableViewCell {
+class CollectionCollectionViewCell: UICollectionViewCell {
     
     //MARK: VARIABLES
+    
     var collection: Collection? {
         didSet {
             setUp()
         }
     }
+    
     
     //MARK: OUTLETS
     var containerView: UIView = {
@@ -31,6 +31,8 @@ class CollectionTableViewCell: UITableViewCell {
         containerView.layer.shadowRadius = 5
         return containerView
     }()
+    
+    
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -49,14 +51,8 @@ class CollectionTableViewCell: UITableViewCell {
     }()
     
     
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     //MARK: FUNCTIONS
+    
     private func setUp() {
         addViews()
         setConstraints()
@@ -68,11 +64,12 @@ class CollectionTableViewCell: UITableViewCell {
     
     private func addViews(){
         self.addSubview(containerView)
-        self.containerView.addSubview(titleLabel)
         self.containerView.addSubview(collectionImageView)
+        self.containerView.addSubview(titleLabel)
+        
         
     }
-
+    
     private func setConstraints() {
         containerView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(8)
@@ -83,18 +80,15 @@ class CollectionTableViewCell: UITableViewCell {
         }
         
         collectionImageView.snp.makeConstraints { (make) in
-            make.centerY.equalToSuperview()
-            make.left.equalToSuperview().offset(15)
-            make.height.equalTo(70)
-            make.width.equalTo(70)
+            make.top.bottom.right.left.equalToSuperview()
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(collectionImageView.snp.top).offset(2)
-            make.left.equalTo(collectionImageView.snp.right).offset(15)
+            make.top.equalToSuperview().offset(25)
+            make.left.equalToSuperview().offset(15)
             make.right.equalToSuperview().offset(-15)
         }
-        
     }
+    
     
 }

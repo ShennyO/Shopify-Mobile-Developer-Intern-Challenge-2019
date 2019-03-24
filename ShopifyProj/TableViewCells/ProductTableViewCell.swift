@@ -40,7 +40,7 @@ class ProductTableViewCell: UITableViewCell {
     
     var vendorLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 14)
         label.numberOfLines = 0
         label.textColor = #colorLiteral(red: 0.370555222, green: 0.3705646992, blue: 0.3705595732, alpha: 1)
         return label
@@ -48,7 +48,7 @@ class ProductTableViewCell: UITableViewCell {
     
     var inventoryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 16)
+        label.font = UIFont(name: "AppleSDGothicNeo-Bold", size: 14)
         label.textColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
         return label
     }()
