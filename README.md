@@ -2,6 +2,10 @@
 
 This project is built for Shopify's summer/winter mobile developer internship position. 
 
+## Screenshots
+
+![alt text](https://imgur.com/x0qmqxS) 
+
 ## Getting Started
 
 ```bash

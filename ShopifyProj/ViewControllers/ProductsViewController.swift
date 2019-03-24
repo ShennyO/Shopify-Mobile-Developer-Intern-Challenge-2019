@@ -26,15 +26,10 @@ class ProductsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         getCollects { (id) in
-            self.getProducts(productId: id, completion: {
-                DispatchQueue.main.async {
-                    self.setUpProductsTableView()
-                    self.setUpTableHeaderView()
-                }
-                
-            })
+            self.getProducts(productId: id)
         }
     }
+    
 }
 
 
@@ -166,14 +161,18 @@ extension ProductsViewController {
     }
     
     
-    private func getProducts(productId: String, completion: @escaping ()->()) {
+    private func getProducts(productId: String) {
         
         Network.instance.fetch(route: .products(id: productId)) { (data, response) in
 
             let jsonProducts = try? JSONDecoder().decode(productList.self, from: data)
             guard let products = jsonProducts?.products else {return}
             self.products = products
-            completion()
+            DispatchQueue.main.async {
+                self.setUpProductsTableView()
+                self.setUpTableHeaderView()
+            }
+            
         }
     }
 }
